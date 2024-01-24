@@ -30,3 +30,5 @@ Laboratorio-01: API con comunicación a la base de datos MySQL, utiliza la libre
 Laboratorio-3: API centrada en ejemplificar la autenticación por Jwt Token, generando y consumiendo así el token para realizar la autenticación.
 
 Libreria-Entidades: Librería que posee una homologación de la tabla y columnas de la base de datos para ser usada por la API Laboratorio-01.
+
+apachecamel: API ejemplo utilizando Método Get con PathParam y QueryParam. 
