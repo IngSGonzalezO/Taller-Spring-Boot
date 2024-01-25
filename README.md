@@ -31,4 +31,4 @@ Laboratorio-3: API centrada en ejemplificar la autenticación por Jwt Token, gen
 
 Libreria-Entidades: Librería que posee una homologación de la tabla y columnas de la base de datos para ser usada por la API Laboratorio-01.
 
-apachecamel: API ejemplo utilizando Método Get con PathParam y QueryParam. 
+apachecamel: API ejemplo utilizando Método Get / Post / Put con PathParam, QueryParam y Body respectivamente. 

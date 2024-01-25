@@ -3,7 +3,7 @@ package sv.gob.mined.modelo;
 public class RespuestaServicio {
 
 	private String mensaje;
-
+	
 	public RespuestaServicio() {
 	}
 	
