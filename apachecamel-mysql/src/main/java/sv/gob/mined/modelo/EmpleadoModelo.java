@@ -1,5 +1,10 @@
 package sv.gob.mined.modelo;
 
+/**
+ * Clase EmpleadoModelo donde se estructura los atributos para estructurar los campos entrantes.
+ * @author Oliver González
+ * 
+ */
 public class EmpleadoModelo {
 
 	private Long identificador;

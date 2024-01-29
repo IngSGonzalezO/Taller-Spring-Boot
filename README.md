@@ -31,6 +31,20 @@ Laboratorio-3: API centrada en ejemplificar la autenticación por Jwt Token, gen
 
 Libreria-Entidades: Librería que posee una homologación de la tabla y columnas de la base de datos para ser usada por la API Laboratorio-01.
 
-apachecamel: API ejemplo utilizando Método Get / Post / Put con PathParam, QueryParam y Body respectivamente. 
+apachecamel: API ejemplo utilizando Método Get / Post / Put con PathParam, QueryParam y Body respectivamente, igualmente del uso de la Autenticación Básica y uso del patrón process. 
 
-apachecamel-mysql: API CRUD con conexión a base de datos MySQL utilizando Apache Camel - Por el momento cuenta solo con endPoint de obtención de información (Métodos Get).
+Las credenciales para la autenticación básica son:
+usuario: apache
+password: camel
+
+apachecamel-mysql: API CRUD con conexión a base de datos MySQL utilizando Apache Camel - Spring Boot, igualmente la API tiene activo el uso del Swagger-UI.
+
+Para ingresar a la interfaz deben utilizar la siguiente ruta: http://localhost:8080/swagger-ui/index.html en el navegador.
+
+apachecamel-jwt: API ejemplo del uso de una autenticación por medio de Token utilizando Jwt.  Generando el token con el EndPoint: /camel/authenticate y realizando el consumo el token con el endPoint: /camel/apachecamel-endpoint/hola
+
+Se comparte las credenciales para generar el token en formato Json:
+{
+  "username":"apache",
+  "password":"admin"
+}

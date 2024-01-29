@@ -13,6 +13,10 @@ import sv.gob.mined.interafeces.EmpleadosInterfaz;
 import sv.gob.mined.modelo.EmpleadoModelo;
 import sv.gob.mined.modelo.RespuestaServicio;
 
+/**
+ * Clase que mantiene la logica para la creacion del CRUD con Apache Camel.
+ * @author Oliver González
+ */
 @Component
 public class EmpleadoBean implements EmpleadosInterfaz{
 
@@ -21,13 +25,17 @@ public class EmpleadoBean implements EmpleadosInterfaz{
 	
 	Logger logger = Logger.getLogger(EmpleadoBean.class.getName());
 	
+	/**
+	 * Metodo Ejemplo del uso de varios Path y la anotación PutMapping.
+	 * @return Retorna una cadena "Hola Mundo"
+	 */
 	@Override
 	public RespuestaServicio obtenerEmpleados() {
 		
 		RespuestaServicio respuesta = new RespuestaServicio();
 		
 		try {
-			
+			//Lista de Empleados
 			List<Empleados> listaEmpleados = empleadoDao.findAll();
 			
 			respuesta.setEstado("Exito");
@@ -51,6 +59,11 @@ public class EmpleadoBean implements EmpleadosInterfaz{
 		
 	}
 
+	/**
+	 * Metodo es utilizado para obtener el empleado por identificador
+	 * @param id Identificador del empleado
+	 * @return Retorna un objecto con el empleado solicitado.
+	 */
 	@Override
 	public RespuestaServicio obtenerEmpleadoPorId(Long id) {
 		
@@ -58,10 +71,20 @@ public class EmpleadoBean implements EmpleadosInterfaz{
 		
 		try {
 			
-			respuesta.setEstado("Exito");
-			respuesta.setMensaje("Empleado encontrado");
-			respuesta.setListaDato(null);
 			respuesta.setDato(empleadoDao.obtenerEmpleadoPorId(id));
+			
+			if(respuesta.getDato() != null) {
+			
+				respuesta.setEstado("Exito");
+				respuesta.setMensaje("Empleado encontrado");
+				respuesta.setListaDato(null);
+				
+				return respuesta;
+			}
+			
+			respuesta.setEstado("Error");
+			respuesta.setMensaje("Empleado no encontrado");
+			respuesta.setListaDato(null);
 			
 			return respuesta;
 			
@@ -79,6 +102,12 @@ public class EmpleadoBean implements EmpleadosInterfaz{
 		
 	}
 
+	/**
+	 * Metodo encargado de crear un empleado nuevo en la base de datos y utilizando un respuesta personalizada
+	 * para con ResponseEntity.
+	 * @param crearEmpleado Objecto con los atributos del empleado a crear.
+	 * @return Retorna un objeto con el registro ingresado a la base de datos y el estado de la solicitud a nivel http.
+	 */
 	@Override
 	public RespuestaServicio crearEmpleado(EmpleadoModelo crearEmpleado) {
 		
@@ -126,6 +155,11 @@ public class EmpleadoBean implements EmpleadosInterfaz{
 		
 	}
 
+	/**
+	 * Metodo encargado de actualizar un empleado existente en la base de datos.
+	 * @param actualizadoEmpleado Objecto con los atributos del empleado a actualizar.
+	 * @return Retorna un objeto con el registro actualizado a la base de datos.
+	 */
 	@Override
 	public RespuestaServicio actualizarEmpleado(EmpleadoModelo actualizarEmpleado) {
 		
@@ -173,6 +207,11 @@ public class EmpleadoBean implements EmpleadosInterfaz{
 		
 	}
 
+	/**
+	 * Metodo encargado de actualizar la direccion de un empleado existente en la base de datos.
+	 * @param actualizadoEmpleado Objecto con los atributos del empleado a actualizar.
+	 * @return Retorna un objeto con el registro actualizado a la base de datos.
+	 */
 	@Transactional
 	@Override
 	public RespuestaServicio actualizarDireccionEmpleado(EmpleadoModelo actulizarDireccion) {
@@ -215,6 +254,11 @@ public class EmpleadoBean implements EmpleadosInterfaz{
 		
 	}
 
+	/**
+	 * Metodo encargado de eliminar el empleado existente por identificador.
+	 * @param id Identificador del empleado.
+	 * @return Retorna un objeto con las solicitud realizada.
+	 */
 	@Override
 	public RespuestaServicio eliminarEmpleado(Long id) {
 		

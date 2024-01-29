@@ -5,6 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/**
+ * Clase Empleados donde se estructura los atributos para la entidad.
+ * @author Oliver González
+ * 
+ */
 @Entity
 @Table(name="Empleados")
 public class Empleados {

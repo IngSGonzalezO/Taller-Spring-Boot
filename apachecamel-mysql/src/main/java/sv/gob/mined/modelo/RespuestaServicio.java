@@ -4,6 +4,11 @@ import java.util.List;
 
 import sv.gob.mined.entidad.Empleados;
 
+/**
+ * Clase RespuestaServicio donde se estructura los atributos para estructurar la respuesta.
+ * @author Oliver González
+ * 
+ */
 public class RespuestaServicio {
 
 	private String estado;

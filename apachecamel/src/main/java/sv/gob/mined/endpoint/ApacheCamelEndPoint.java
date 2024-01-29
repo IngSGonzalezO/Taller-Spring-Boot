@@ -1,5 +1,6 @@
 package sv.gob.mined.endpoint;
 
+import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.rest.RestBindingMode;
 import org.apache.camel.model.rest.RestParamType;
@@ -52,8 +53,17 @@ public class ApacheCamelEndPoint extends RouteBuilder{
 				.type(EmpleadoModelo.class)
 				.outType(RespuestaServicio.class)
 				.param().name("empleado").type(RestParamType.body).description("Objecto de empleado").dataType("EmpleadoModelo").endParam()
-				.to("direct:saludar");
+				.to("direct:saludar")
 			
+			.post("/process")
+				.type(EmpleadoModelo.class)
+				.outType(RespuestaServicio.class)
+				.param().name("modelo").type(RestParamType.body).description("Objecto del modelo").dataType("EmpleadoModelo").endParam()
+				.to("direct:saluda");
+		
+		from("direct:saluda")
+        	.process((Processor) new GetBean());
+		
 		from("direct:hola")
 			.bean(GetBean.class, "hola(${header.nombre}, ${header.edad})");
 		
