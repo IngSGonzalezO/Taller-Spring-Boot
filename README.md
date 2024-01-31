@@ -31,6 +31,8 @@ Laboratorio-3: API centrada en ejemplificar la autenticación por Jwt Token, gen
 
 Libreria-Entidades: Librería que posee una homologación de la tabla y columnas de la base de datos para ser usada por la API Laboratorio-01.
 
+
+
 apachecamel: API ejemplo utilizando Método Get / Post / Put con PathParam, QueryParam y Body respectivamente, igualmente del uso de la Autenticación Básica y uso del patrón process. 
 
 Las credenciales para la autenticación básica son:
@@ -48,3 +50,7 @@ Se comparte las credenciales para generar el token en formato Json:
   "username":"apache",
   "password":"admin"
 }
+
+apache-camel-ejercicio: Ejercicio práctico del módulo de Apache Camel usando método Get y Post.
+
+Documentación: Presentaciones de los módulos de Spring Boot y Apache Camel.
